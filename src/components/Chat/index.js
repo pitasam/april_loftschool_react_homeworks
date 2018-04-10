@@ -37,7 +37,12 @@ class Chat extends Component {
 
         return (
             <div className="chat">
-                <Message messages={ messages } />
+                <div className="message-list">
+                    <div className="messages">
+                        <Message messages={ messages } />
+                    </div>
+                </div>
+
 
                 <input className="input-message"
                        onChange={this.changeInputMessage}

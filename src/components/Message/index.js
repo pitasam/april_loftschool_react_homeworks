@@ -7,9 +7,7 @@ class Message extends Component {
         const { messages } = this.props;
 
         return (
-            <ul>
-                {messages.map(item => <li className="message">{ item.text }</li>)}
-            </ul>
+            messages.map(item => <div className="message">{ item.text }</div>)
         )
     }
 }
