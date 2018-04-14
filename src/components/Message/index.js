@@ -4,10 +4,10 @@ import './Message.css';
 class Message extends Component {
 
     render() {
-        const { messages } = this.props;
+        const { text, key } = this.props;
 
         return (
-            messages.map(item => <div className="message">{ item.text }</div>)
+            <div key={ key } className="message">{ text }</div>
         )
     }
 }

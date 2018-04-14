@@ -24,22 +24,21 @@ class Chat extends Component {
         // сохраняем сообщение в массив
         // переменную messageInput обнуляем в пустую строку
         if (event.key === 'Enter') {
-            const mes = this.state.messageInput;
+            const messageInput = this.state.messageInput;
+            const messages = this.state.messages;
 
-            this.setState((state) => ( this.state.messages.push({'text': mes})));
-            this.setState(({ messageInput }) => ({'messageInput': ''}));
+            this.setState({messages: [...messages, {text: messageInput}], messageInput: ''});
         }
     };
 
     render() {
-        const { messages } = this.state;
-        const { messageInput } = this.state;
+        const { messages, messageInput } = this.state;
 
         return (
             <div className="chat">
                 <div className="message-list">
                     <div className="messages">
-                        <Message messages={ messages } />
+                        { messages.map((message, index) => (<Message key={index} text={ message.text } />)) }
                     </div>
                 </div>
 
