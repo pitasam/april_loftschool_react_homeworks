@@ -18,12 +18,16 @@
 }
 
 .button-next {
+  padding: 5px 10px;
   margin-left: auto;
   background-color: blue;
   color: white;
+  cursor: pointer;
+  border: 1px solid darkblue;
 }
 
 .button-next:disabled {
-  background-color: #eee;
+  background-color: #8f8fd0;
+  border: 1px solid #c2c2dc;
   color: black;
 }

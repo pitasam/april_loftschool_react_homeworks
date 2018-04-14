@@ -141,7 +141,7 @@ describe('Компонент App', () => {
         });
       });
       describe('Если state.step === 2', () => {
-        it('Должен возврать  true если cardNumber.length === 16', () => {
+        it('Должен возвращать  true если cardNumber.length === 16', () => {
           wrapper.setState({
             step: 2,
             cardNumber: '1324123412341234',
