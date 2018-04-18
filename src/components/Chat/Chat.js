@@ -16,7 +16,7 @@ class Chat extends Component {
         let  value;
 
         value  = event.target.value;
-        this.setState(({ messageInput }) => ({messageInput: value }));
+        this.setState({messageInput: value });
     };
 
     sendMessageOnEnter = (event) => {
@@ -37,9 +37,7 @@ class Chat extends Component {
         return (
             <div className="chat">
                 <div className="message-list">
-                    <div className="messages">
-                        { messages.map((message, index) => (<Message key={index} text={ message.text } />)) }
-                    </div>
+                    <div className="messages">{ messages.map((message, index) => (<Message key={index} text={ message.text } />)) }</div>
                 </div>
 
 

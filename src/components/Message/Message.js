@@ -4,10 +4,10 @@ import './Message.css';
 class Message extends Component {
 
     render() {
-        const { text, key } = this.props;
+        const { text } = this.props;
 
         return (
-            <span key={ key } className="message">{ text }</span>
+            <span className="message">{ text }</span>
         )
     }
 }
