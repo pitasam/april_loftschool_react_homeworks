@@ -41,25 +41,17 @@ class App extends Component {
             }
         }
 
-        if (step !== 1 | 2) {
-            return false;
-        }
-
         return false;
     };
 
     handleChangeForm = (name, value) => {
-        if (arguments.length < 2) return false;
+        if (!(name && value)) return false;
 
         this.setState((state)=>({[name]: value}));
-
-
     };
 
-    handleTabClick = (value) => {
-        if (arguments.length !== 0) {
-            this.setState((state) => ({step: value}));
-        }
+    handleTabClick = (value = 0) => {
+        this.setState((state) => ({step: value}));
     };
 
     renderForm = () =>  {
@@ -67,7 +59,8 @@ class App extends Component {
             lastName,
             email,
             step,
-            cardNumber } = this.state;
+            cardNumber
+        } = this.state;
         let content = null;
 
         if (step === 1) {
@@ -113,9 +106,25 @@ class App extends Component {
         return (
             <div className="container">
                 <div className="tab-panel">
-                    <Step number={1} isSelected={(this.state.step === 1)} isClickable={true} onClick={this.handleTabClick}>Personal information</Step>
-                    <Step number={2} isSelected={(this.state.step === 2)} isClickable={(this.state.step > 2)} onClick={this.handleTabClick}>Card information</Step>
-                    <Step number={3} isSelected={(this.state.step === 3)} isClickable={(this.state.step > 3)} onClick={this.handleTabClick}>Finish</Step>
+                    <Step
+                        number={1}
+                        isSelected={(this.state.step === 1)}
+                        isClickable={true}
+                        onClick={this.handleTabClick}>
+                        Personal information
+                    </Step>
+                    <Step number={2}
+                          isSelected={(this.state.step === 2)}
+                          isClickable={(this.state.step > 2)}
+                          onClick={this.handleTabClick}>
+                        Card information
+                    </Step>
+                    <Step number={3}
+                          isSelected={(this.state.step === 3)}
+                          isClickable={(this.state.step > 3)}
+                          onClick={this.handleTabClick}>
+                        Finish
+                    </Step>
                 </div>
                 {this.renderTitle()}
                 <div className="form-content">
