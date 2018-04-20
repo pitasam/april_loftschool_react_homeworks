@@ -11,7 +11,7 @@ class CardNumberInput extends Component {
         let result = '';
 
         if (value) {
-            result = value.replace(/(\d{0,4})/g, '$1 ').trim();
+            result = String(value).replace(/(\d{0,4})/g, '$1 ').trim();
         }
 
         return result;
@@ -19,7 +19,11 @@ class CardNumberInput extends Component {
 
   // форматирует переданный агрумент, убирая все пробелы
   normalize = (value) => {
-      let result = value.replace(/\s/g, '');
+      let result = '';
+
+      if (value) {
+          result = String(value).replace(/\s/g, '');
+      }
 
       return result;
   };
@@ -27,6 +31,10 @@ class CardNumberInput extends Component {
   // берет прокинутое значение из cardNumber
   componentWillReceiveProps (nextProps) {
       this.setState({ number: this.format(nextProps.cardNumber) });
+  }
+
+  componentWillMount() {
+      this.setState(() => ({ number: this.format(this.props.cardNumber) }));
   }
 
   // по изменению инпута, прокидывает значение инпута
@@ -42,7 +50,10 @@ class CardNumberInput extends Component {
     const { number } = this.state;
 
     return (
-        <input value={number} type="text" onChange={this.onChange} />
+        <input value={number}
+               type="text"
+               onChange={this.onChange}
+        />
     );
   }
 }
