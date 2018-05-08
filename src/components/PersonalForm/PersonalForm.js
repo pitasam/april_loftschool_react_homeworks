@@ -11,7 +11,7 @@ class PersonalForm extends Component {
 
     render() {
         return (
-            <div className="personal-form">
+            <div className="personal-form" data-test="personal-form">
                 <input
                     className="input"
                     type="text" name="firstName"
